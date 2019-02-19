@@ -10,7 +10,8 @@ export default class Routerr extends Component {
     constructor(props){
         super(props);
         this.state = {
-         arr:[ ]
+         arr:[ ],
+         msg2:"" 
         }
     }
 
