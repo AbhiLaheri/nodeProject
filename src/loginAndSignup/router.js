@@ -3,8 +3,8 @@ import{
     BrowserRouter as Router,
     Route, Link
 } from "react-router-dom";
-import Login from '../login';
-import Fetcher3 from '../class6/fetcher3';
+import Login from '../loginAndSignup/login';
+import Fetcher3 from '../loginAndSignup/fetcher3';
 
 export default class Routerr extends Component {
     constructor(props){
