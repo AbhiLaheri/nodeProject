@@ -61,8 +61,9 @@ export default class Post_query extends Component {
                             </label>
 
                             <div className="wrap-input100 validate-input" >
-                                <textarea placeholder="RIGHT A QUERY HERE" />
-                                <span className="focus-input100" data-placeholder="black"></span>
+                            <p>WRIGHT A QUERY HERE</p>
+                                <textarea />
+                                {/* <span className="focus-input100" data-placeholder="black"></span> */}
                             </div>
                             
                             
