@@ -1,6 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+<<<<<<< HEAD
+//import Routerr from './loginAndSignup/router';
+
+
+import * as serviceWorker from './serviceWorker';
+import SignUp from './loginAndSignup/signUp';
+
+//ReactDOM.render(<Login/>, document.getElementById('root'));
+ReactDOM.render(<SignUp/>, document.getElementById('root'));
+=======
 
 //import Routerr from './class8/router';
 // import Delete from './practice/delete';
@@ -15,6 +25,7 @@ import * as serviceWorker from './serviceWorker';
 
 //ReactDOM.render(<Login/>, document.getElementById('root'));
 ReactDOM.render(<Login/>, document.getElementById('root'));
+>>>>>>> d88bdf1941211423598920768415052f05cb3b42
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
