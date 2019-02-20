@@ -1,8 +1,4 @@
 import React, { Component } from 'react';
-import './template/vendor/bootstrap/css/bootstrap.min.css';
-import './template/fonts/iconic/css/material-design-iconic-font.min.css';
-import './template/css/util.css';
-import './template/css/main.css';
 export default class Post_query extends Component {
     constructor(props) {
         super(props);

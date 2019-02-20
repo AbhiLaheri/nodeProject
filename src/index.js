@@ -1,14 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Routerr from './class8/router';
+
+//import Routerr from './class8/router';
 // import Delete from './practice/delete';
 //import Box from './box';
 import Login from './login';
 //import Fetcher2 from './class6/fetcher2';
+// import Admin from './admin';
+//import Emp1 from './Emp1';
 //import BackGraund from './class6/backGraund';
 import * as serviceWorker from './serviceWorker';
-import Post_query from './post_query';
+// import Post_query from './post_query';
 
 //ReactDOM.render(<Login/>, document.getElementById('root'));
 ReactDOM.render(<Login/>, document.getElementById('root'));
