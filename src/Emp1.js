@@ -14,11 +14,12 @@ export default class Emp1 extends Component {
             <Form>
                 <Form.Group as={Col} controlId="formGridState">
                     <Form.Label>Ticket Id :</Form.Label>
-                    <Form.Control as="select">
-                        <option>Choose...</option>
-                        <option>...</option>
+                    <Form.Control type="text">
                     </Form.Control>
                 </Form.Group>
+                <Button variant="primary" type="submit">
+                Solve
+                </Button>
 
                 <Button variant="primary" type="submit">
                     Submit
