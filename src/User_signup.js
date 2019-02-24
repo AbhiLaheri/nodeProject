@@ -122,7 +122,6 @@ export default class User_signup extends Component {
 						password: event.target.value
 					})
 				}} /><br></br>*/
-
 		)
 	}
 }
