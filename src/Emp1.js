@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button, Form, Col } from 'react-bootstrap';
 export default class Emp1 extends Component {
     constructor(props) {
         super(props);
@@ -7,35 +8,23 @@ export default class Emp1 extends Component {
         }
     }
 
-
     render() {
         return (
 
-            <div className="limiter">
-                <div class="container-login100" >
-                    <div className="wrap-login100">
-                        <table class="table">
-                            <tbody>
-                                <tr>
-                                    <td>Ticket Id :</td>
-                                    <td>
-                                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Shopping App</a>
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="#">Executive 1</a>
-                                            <a class="dropdown-item" href="#">Executive 2</a>
-                                            <a class="dropdown-item" href="#">Executive 3</a>
-                                            <a class="dropdown-item" href="#">Executive 4</a>
-                                            <a class="dropdown-item" href="#">Executive 5</a>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+            <Form>
+                <Form.Group as={Col} controlId="formGridState">
+                    <Form.Label>Ticket Id :</Form.Label>
+                    <Form.Control type="text">
+                    </Form.Control>
+                </Form.Group>
+                <Button variant="primary" type="submit">
+                Solve
+                </Button>
 
-                </div>
-
-            </div>
+                <Button variant="primary" type="submit">
+                    Submit
+  </Button>
+            </Form>
 
 
         )

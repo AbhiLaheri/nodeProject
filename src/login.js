@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-
+import { Form } from 'react-bootstrap';
 export default class Login extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			name:"",
-			msg:""
+			name: "",
+			password: ""
 		}
 	}
 
@@ -19,42 +19,68 @@ export default class Login extends Component {
 			},
 			body: JSON.stringify({
 				name: this.state.name,
-				address: 'yourOtherValue',
-				phone_number:"123",
-				salary:"1235"
+				password: this.state.password,
+				//address: 'yourOtherValue',
+				//phone_number:"123",
+				//salary:"1235"
 			}),
 		}).then((response) => response.json())
-		.then((responseJson) => {
-			console.log(responseJson);
-			this.setState({
-				msg: responseJson.message
-			})
+			.then((responseJson) => {
+				console.log(responseJson);
+				this.setState({
+					msg: responseJson.message
+				})
 
-		})
-		.catch((error) =>{
-			console.error(error);
-		});
+			})
+			.catch((error) => {
+				console.error(error);
+			});
 
 	}
 
 
 	render() {
 		return (
-
-			<div className="limiter">
-			<input  onChange={(event)=>{
-				this.setState({
-					name: event.target.value
-				})
-			}} />
-			{this.state.msg}
-				<button 
-								onClick={this.login.bind(this)}
-								>
-									Login
+			<Form>
+				<Form.Group controlId="formGroupEmail">
+					<Form.Label>Login Id : </Form.Label>
+					<Form.Control type="text" placeholder="Enter Login Id" 
+					onChange={(event) => {
+						this.setState({
+							name: event.target.value
+						})
+					}} />
+				</Form.Group>
+				<Form.Group controlId="formGroupPassword">
+					<Form.Label>Password : </Form.Label>
+					<Form.Control type="password" placeholder="Password" 
+					onChange={(event) => {
+						this.setState({
+							password: event.target.value
+						})
+					}}  />
+				</Form.Group>
+				<button
+					onClick={this.login.bind(this)}
+				>
+					Login
 						</button>
-			</div>
 
+			</Form>
+
+			/*<div className="limiter">
+				Login Id :
+			<input type="text" onChange={(event) => {
+					this.setState({
+						name: event.target.value
+					})
+				}} /><br></br>
+				Password :
+			<input type="password" onChange={(event) => {
+					this.setState({
+						password: event.target.value
+					})
+				}} /><br></br>*/
 
 		)
 	}
