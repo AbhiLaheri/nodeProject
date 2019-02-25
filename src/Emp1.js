@@ -20,7 +20,7 @@ export default class Emp1 extends Component {
                 <Button variant="primary" type="submit">
                 Solve
                 </Button>
-
+                <br></br>
                 <Button variant="primary" type="submit">
                     Submit
   </Button>
