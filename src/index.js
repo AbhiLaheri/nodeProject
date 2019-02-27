@@ -5,13 +5,12 @@ import './index.css';
 //import Emp1 from './Emp1';
 //import User_signup from './User_signup';
 //import Login from './login';
-//import Home from './Home';
-//import Admin from './admin';
-import User_query from './User_query';
-import * as serviceWorker from './serviceWorker';
-//import SignUp from './loginAndSignup/signUp';
+//import Home from './home';
 
-ReactDOM.render(<User_query/>, document.getElementById('root'));
+import * as serviceWorker from './serviceWorker';
+import UserQuery from './userQuery';
+
+ReactDOM.render(<UserQuery/>, document.getElementById('root'));
 //ReactDOM.render(<Home/>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

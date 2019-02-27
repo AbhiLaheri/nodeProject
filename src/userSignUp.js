@@ -2,22 +2,22 @@ import React, { Component } from 'react';
 import './template/css/main.css'
 import './template/fonts/iconic/css/material-design-iconic-font.min.css';
 import AppNavbar from './appNavBar';
-export default class Login extends Component {
+export default class UserSignUp extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			name: "",
-			password: ""
+			password: "",
+			email:"",
+			phone_number:"",
+			re_password:"",
+			loginid:""
 		}
 	}
 
-	login() {
-		if(this.state.name === "" || this.state.name== null)
-		{
-			alert("enter neme!!!!");
-		}
-		console.log("begin login");
-		fetch('http://localhost:8000/login', {
+	signup() {
+		console.log("begin Signup");
+		fetch('http://localhost:8000/signUp', {
 			method: 'POST',
 			headers: {
 				Accept: 'application/json',
@@ -25,10 +25,11 @@ export default class Login extends Component {
 			},
 			body: JSON.stringify({
 				name: this.state.name,
+				user_email:this.state.user_email,
+				phone_number:this.state.phone_number,
+		//		loginid:this.state.loginid,
 				password: this.state.password,
-				//address: 'yourOtherValue',
-				//phone_number:"123",
-				//salary:"1235"
+		//	re_password: this.state.re_password,
 			}),
 		}).then((response) => response.json())
 			.then((responseJson) => {
@@ -53,12 +54,10 @@ export default class Login extends Component {
 			 <div class="container-login100" >
 		  <div className="wrap-login100">
 		  <form>
-				  <span className="login100-form-logo">
-					  <i className="zmdi zmdi-landscape"></i>
-				  </span>
+				
 
 				  <span className="login100-form-title p-b-34 p-t-27">
-					  Log in
+					  Sign Up
 				  </span>
 
 				  <div className="wrap-input100 validate-input" >
@@ -69,7 +68,27 @@ export default class Login extends Component {
 					}}/>
 					  <span className="focus-input100" data-placeholder="&#xf207;"></span>
 				  </div>
+				  
+				  <div className="wrap-input100 validate-input" >
+					  <input className="input100" type="text"  placeholder="Email" onChange={(event) => {
+						this.setState({
+							user_email: event.target.value
+						})
+					}}/>
+					  <span className="focus-input100" data-placeholder="&#xf207;"></span>
+				  </div>
 
+
+				  <div className="wrap-input100 validate-input" >
+					  <input className="input100" type="text"  placeholder="Phone Number" onChange={(event) => {
+						this.setState({
+							phone_number: event.target.value
+						})
+					}}/>
+					  <span className="focus-input100" data-placeholder="&#xf207;"></span>
+				  </div>
+				  
+				  
 				  <div className="wrap-input100 validate-input" >
 					  <input className="input100" type="password"  placeholder="Password" onChange={(event) => {
 						this.setState({
@@ -78,12 +97,18 @@ export default class Login extends Component {
 					}}/>
 					  <span className="focus-input100" data-placeholder="&#xf191;"></span>
 				  </div>
-
-				  
+				  <div className="wrap-input100 validate-input" >
+					  <input className="input100" type="password"  placeholder="Confirm Password" onChange={(event) => {
+						this.setState({
+							password: event.target.value
+						})
+					}}/>
+					  <span className="focus-input100" data-placeholder="&#xf191;"></span>
+				  </div>
 
 				  <div className="container-login100-form-btn">
-					  <button className="login100-form-btn" onClick={this.login.bind(this)}>
-						  Login
+					  <button className="login100-form-btn" onClick={this.signup.bind(this)}>
+						  Sign Up
 					  </button>
 				  </div>
        
@@ -97,5 +122,6 @@ export default class Login extends Component {
 		  </div>
 		  </div>
 		)
+		
 	}
 }
