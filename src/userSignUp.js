@@ -49,7 +49,6 @@ export default class UserSignUp extends Component {
 	render() {
 		return (
 			<div>
-				<AppNavbar></AppNavbar>
 			<div className="limiter">
 			 <div class="container-login100" >
 		  <div className="wrap-login100">
@@ -85,7 +84,7 @@ export default class UserSignUp extends Component {
 							phone_number: event.target.value
 						})
 					}}/>
-					  <span className="focus-input100" data-placeholder="&#xf207;"></span>
+					  <span className="focus-input100 " data-placeholder="&#xf095;"></span>
 				  </div>
 				  
 				  

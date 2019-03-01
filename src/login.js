@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './template/css/main.css'
 import './template/fonts/iconic/css/material-design-iconic-font.min.css';
-import AppNavbar from './appNavBar';
+//import {BrowserRouter as Router, Route, Link } from "react-router-dom";
 export default class Login extends Component {
 	constructor(props) {
 		super(props);
@@ -13,11 +13,13 @@ export default class Login extends Component {
 
 	login() {
 		if(this.state.name === "" || this.state.name== null)
-		{
+		 {
 			alert("enter neme!!!!");
-		}
-		console.log("begin login");
-		fetch('http://localhost:8000/login', {
+	     }
+	   else{
+		 localStorage.setItem('myCat', 'Abhishek');
+		 console.log("begin login");
+		 fetch('http://localhost:8000/login', {
 			method: 'POST',
 			headers: {
 				Accept: 'application/json',
@@ -36,19 +38,17 @@ export default class Login extends Component {
 				this.setState({
 					msg: responseJson.message
 				})
-
 			})
 			.catch((error) => {
 				console.error(error);
 			});
-
+		}
 	}
 
 
 	render() {
 		return (
 			<div>
-				<AppNavbar></AppNavbar>
 			<div className="limiter">
 			 <div class="container-login100" >
 		  <div className="wrap-login100">

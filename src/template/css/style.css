@@ -4,12 +4,19 @@ body {
   color: #444;
   font-family: "Open Sans", sans-serif;
 }
-
+.navbar-light{
+  color : blue;
+}
+.lkk{
+  margin-left: 230%;
+}
+.lk{
+  margin-left: 9%;
+}
 a {
   color: #007bff;
   transition: 0.5s;
 }
-
 a:hover,
 a:active,
 a:focus {
@@ -165,7 +172,7 @@ h6 {
   position: relative;
   background: url("../img/intro-bg.png") center bottom no-repeat;
   background-size: cover;
-  padding: 200px 0 120px 0;
+  padding: 150px 0 90px 0;
 }
 
 #intro .intro-img {
