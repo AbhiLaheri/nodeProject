@@ -1,69 +1,79 @@
-import React, { Component } from 'react';
-import { Button, NavDropdown, Form, Nav, Navbar, Row, Col } from 'react-bootstrap';
+import React, { Component } from "react";
+import AppNavbar from './appNavBar'; 
+import "./template/css/style.css";
 export default class Admin extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-
-    }
+    this.state = {};
   }
-
 
   render() {
     return (
-
-      <Navbar bg="light" expand="lg">
-        <Navbar.Brand href="#home">HOME</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto">
-            <NavDropdown title="Allotment For Query" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Executive 1</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Executive 2</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Executive 3</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Executive 4</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Executive 5</NavDropdown.Item>
-            </NavDropdown>
-
-          </Nav>
-
-
-
-          <Button variant="outline-success">LogOut</Button>
-
-
-        </Navbar.Collapse>
-      </Navbar>
-      <input
-        type="radio"
-        label="Flipkart"
-        name="formHorizontalRadios"
-        id="formHorizontalRadios1"
-      />
-      <input
-        type="radio"
-        label="Amazon"
-        name="formHorizontalRadios"
-        id="formHorizontalRadios2"
-      />
-      <input
-        type="radio"
-        label="Myntra"
-        name="formHorizontalRadios"
-        id="formHorizontalRadios3"
-      />
-      <input
-        type="radio"
-        label="Shein"
-        name="formHorizontalRadios"
-        id="formHorizontalRadios3"
-      />
-      <input
-        type="radio"
-        label="Club Factory"
-        name="formHorizontalRadios"
-        id="formHorizontalRadios3"
-      />
-        )
+      <div>
+        <AppNavbar></AppNavbar>
+        <div className="admin-body">
+          <div class="row">
+            <div class="col-sm-3">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">All Company</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                    <input type="radio" name="cm1"/>
+                    Flipkart
+                  </li>
+                  <li class="list-group-item">
+                    <input type="radio" name="cm1" />
+                    Myntra
+                  </li>
+                  <li class="list-group-item">
+                    <input type="radio" name="cm1" />
+                    Amazon
+                  </li>
+                  <li class="list-group-item">
+                    <input type="radio" name="cm1"/>
+                    Other
+                  </li>
+                 
+                  <button class="btn btn-primary">Allocate Query</button>
+                 
+                </ul>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">All available Employee</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                <li class="list-group-item"> <input type="radio" name="em1"/>Cras justo odio</li>
+                  <li class="list-group-item"> <input type="radio" name="em1"/>Dapibus ac facilisis in</li>
+                  <li class="list-group-item"><input type="radio" name="em1"/>Vestibulum at eros</li>
+                  <li class="list-group-item"> <input type="radio" name="em1"/>Cras justo odio</li>
+                  <li class="list-group-item"> <input type="radio" name="em1"/>Dapibus ac facilisis in</li>
+                  <li class="list-group-item"><input type="radio" name="em1"/>Vestibulum at eros</li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">All user token:</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item"> <input type="radio" name="us1"/>Cras justo odio</li>
+                  <li class="list-group-item"> <input type="radio" name="us1"/>Dapibus ac facilisis in</li>
+                  <li class="list-group-item"><input type="radio" name="us1"/>Vestibulum at eros</li>
+                  <li class="list-group-item"> <input type="radio" name="us1"/>Cras justo odio</li>
+                  <li class="list-group-item"> <input type="radio" name="us1"/>Dapibus ac facilisis in</li>
+                  <li class="list-group-item"><input type="radio" name="us1"/>Vestibulum at eros</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
   }
 }

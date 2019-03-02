@@ -29,7 +29,7 @@ export default class AppNavbar extends Component {
         return (
           <Router >
             <div>
-            <nav className="navbar navbar-expand-lg navbar-light" style={{backgroundColor: "#e3f2fd"}}>
+            <nav className="navbar navbar-expand-lg navbar-light shadow-sm" style={{backgroundColor: "#e3f2fd"}}>
              <Link to="/home" className="navbar-brand lk" style={{ color : "blue", fontSize:27}}>Query Solver</Link>
              <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>

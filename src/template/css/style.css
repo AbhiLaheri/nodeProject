@@ -7,6 +7,21 @@ body {
 .navbar-light{
   color : blue;
 }
+.admin-body{
+margin-left: 9%;
+margin-right: 2%;
+margin-top: 3%;
+
+}
+.card-body{
+background-color: rgb(189, 188, 188);
+}
+.list-group-item:hover{
+  background-color: #a2bedd;
+}
+.bt:hover{
+  background-color: white;
+}
 .lkk{
   margin-left: 230%;
 }
