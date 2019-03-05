@@ -3,7 +3,7 @@ import UserSignUp from './userSignUp';
 //import { Button, FormControl, NavDropdown,Form,Nav,Navbar } from 'react-bootstrap';
 import {BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Login from './login';
-import './template/css/style.css'
+import './template/css/style.css';
 import Home from './home';
 import UserQuery from './userQuery';
 export default class AppNavbar extends Component {
