@@ -4,26 +4,33 @@ body {
   color: #444;
   font-family: "Open Sans", sans-serif;
 }
-.navbar-light{
-  color : blue;
-}
+/* .navbar-light{
+  
+} */
 .admin-body{
 margin-left: 9%;
 margin-right: 2%;
 margin-top: 3%;
 
 }
+/* .col2{
+  background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1));
+  height: 100px;
+  width: 100px;
+  background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+  } */
 .card-body{
 background-color: rgb(189, 188, 188);
 }
 .list-group-item:hover{
-  background-color: #a2bedd;
+  background-color: rgba(20, 20, 20, 0.87);
+  color: white;
 }
 .bt:hover{
   background-color: white;
 }
 .lkk{
-  margin-left: 230%;
+  margin-left: 750px;
 }
 .lk{
   margin-left: 9%;

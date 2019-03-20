@@ -1,17 +1,57 @@
 import React, { Component } from "react";
 import AppNavbar from "./appNavBar";
+// import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Nav from "./navbar";
 //import "./template/css/style.css";
 //import { Button, Form, Col } from 'react-bootstrap';
 export default class Emp extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      userSession: false
+    };
+  }
+  componentDidMount() {
+    if (localStorage.getItem("myCat")) {
+      this.setState({
+        userSession: true
+      });
+    }
+    
+    if (localStorage.getItem("myCat")) {
+      localStorage.setItem("myCat", "Abhishek");
+      console.log("begin login");
+      fetch("http://localhost:8000/availableEpmloyee", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          name: this.state.name,
+          password: this.state.password
+          //address: 'yourOtherValue',
+          //phone_number:"123",
+          //salary:"1235"
+        })
+      })
+        .then(response => response.json())
+        .then(responseJson => {
+          console.log(responseJson);
+          this.setState({
+            msg: responseJson.message
+          });
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    }
   }
 
   render() {
     return (
       <div>
-          <AppNavbar></AppNavbar>
+         <Nav userSession={this.state.userSession}/>
       <div
         style={{
           marginLeft: "25%",

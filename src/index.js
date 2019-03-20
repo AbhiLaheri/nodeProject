@@ -7,11 +7,11 @@ import './index.css';
 //import Home from './home';
 
 import * as serviceWorker from './serviceWorker';
-import Emp from './Emp1';
+//import Emp from './Emp1';
+import AppNavbar from './appNavBar';
 //import UserQuery from './userQuery';
-//import AppNavbar from './appNavBar';
 
-ReactDOM.render(<Emp/>, document.getElementById('root'));
+ReactDOM.render(<AppNavbar/>, document.getElementById('root'));
 //ReactDOM.render(<Home/>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
