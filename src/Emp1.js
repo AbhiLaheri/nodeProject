@@ -4,6 +4,7 @@ import AppNavbar from "./appNavBar";
 import Nav from "./navbar";
 //import "./template/css/style.css";
 //import { Button, Form, Col } from 'react-bootstrap';
+import "./template/css/prac.css";
 export default class Emp extends Component {
   constructor(props) {
     super(props);
@@ -17,22 +18,19 @@ export default class Emp extends Component {
         userSession: true
       });
     }
-    
+
     if (localStorage.getItem("myCat")) {
       localStorage.setItem("myCat", "Abhishek");
       console.log("begin login");
-      fetch("http://localhost:8000/availableEpmloyee", {
+      fetch("http://localhost:8000/emp_check_assigned_work", {
         method: "POST",
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          name: this.state.name,
-          password: this.state.password
-          //address: 'yourOtherValue',
-          //phone_number:"123",
-          //salary:"1235"
+         emp_email:"emp2@gmail.com"
+
         })
       })
         .then(response => response.json())
@@ -51,42 +49,40 @@ export default class Emp extends Component {
   render() {
     return (
       <div>
-         <Nav userSession={this.state.userSession}/>
-      <div
-        style={{
-          marginLeft: "25%",
-          marginTop: "5%",
-          marginRight: "25%",
-          textAlign: "center"
-        }}>
+        <Nav userSession={this.state.userSession} />
+        
         <div
-          class="card text-black shadow-sm rounded"
-          style={{ maxWidth: "38rem" }}
-        >
-          <div class="card-header  text-white rounded"  style={{backgroundColor:"#8c73f2"}}>Assigned Work</div>
-          <div class="card-body rounded" style={{backgroundColor:"white"}}>
-            <h5 class="card-title" >Primary card title</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up
-              the.
-            </p>
-            <button
-              href="#"
-              class="btn btn-primary shadow-sm mb-6 "
-              style={{ minWidth: "6rem", marginLeft: "6%" }}
-            >
-              Solve
-            </button>
-            <button
-              href="#"
-              class="btn btn-danger mb-6  shadow-sm m-4 "
-              style={{ minWidth: "6rem", marginRight: "1%" }}
-            >
-              Reassign
-            </button>
+          className="mt-1 "
+          style={{
+            marginLeft: "8%",
+            marginRight: "2%",
+            marginTop: "4%" ,
+            alignSelf: "1px auto"
+            }}  >
+          <div className="row  " style={{ minHeight:"600px", marginTop:"50px"}}>
+          <div className="col-sm-3  ">
+              <div className="card ">
+                <div className="card-body bg-primary ">
+                  <h5 className="card-title ">User Details </h5>
+                </div>
+                <ul className="list-group list-group-flush">
+                  <li className="list-group-item">ss</li>
+                </ul>
+              </div>
+            </div>
+          
+            <div className="col-sm-8  ">
+              <div className="card ">
+                <div className="card-body bg-primary ">
+                  <h5 className="card-title ">User Query </h5>
+                </div>
+                <ul className="list-group list-group-flush">
+                  <li className="list-group-item">ss</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
       </div>
     );
   }

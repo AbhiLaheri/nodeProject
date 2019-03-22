@@ -15,40 +15,54 @@ export default class Login extends Component {
     this.state = {
       name: "",
       password: "",
-      re: false
+      re: false,
+      msg:""
     };
   }
 
   login() {
-    if (this.state.name == "" || this.state.name == null) {
-      alert("enter neme!!!!");
-    } else {
-      localStorage.setItem("myCat", "Abhishek");
-      console.log("begin login");
-      fetch("http://localhost:8000/login", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          name: this.state.name,
-          password: this.state.password
-          //address: 'yourOtherValue',
-          //phone_number:"123",
-          //salary:"1235"
+    if (this.state.name != "") {
+      if(this.state.password !=""){
+      
+        console.log("begin login");
+        fetch("http://localhost:8000/login", {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            user_email: this.state.name,
+            password: this.state.password
+            // user_email: "ee",
+            // password: "eee"
+            
+          })
         })
-      })
-        .then(response => response.json())
-        .then(responseJson => {
-          console.log(responseJson);
-          this.setState({
-            msg: responseJson.message
+          .then(response => response.json())
+          .then(responseJson => {
+            console.log(responseJson);
+            this.setState({
+              msg: responseJson.message
+              
+            });
+              if(responseJson.status){
+               
+                localStorage.setItem("myCat", "Abhishek");
+              }
+            
+          })
+          .catch(error => {
+            console.error(error);
           });
-        })
-        .catch(error => {
-          console.error(error);
-        });
+
+      }
+      else{
+         alert("enter Password!!")
+      }
+     
+    } else {
+      alert("enter neme!!!!");
     }
     if (localStorage.getItem("myCat")) {
       this.setState({
@@ -59,17 +73,17 @@ export default class Login extends Component {
 
   render() {
     if (this.state.re) {
-      return <Redirect to="/admin" />;
-      //return <Redirect to="/emp" />; 
-      //return <Redirect to="/user" />; 
+     // return <Redirect to="/admin" />;
+    //  return <Redirect to="/emp" />; 
+     return <Redirect to="/user" />; 
       
     }
     return (
-      <div style={{ backgroundColor: "blue" }}>
+      <div >
         <Nav userSession={this.state.userSession} />
 
         <div className="limiter">
-          <div class="container-login100">
+          <div className="container-login100">
             <div className="wrap-login100">
               <form>
                 <span className="login100-form-logo">
@@ -77,7 +91,7 @@ export default class Login extends Component {
                 </span>
 
                 <span className="login100-form-title p-b-34 p-t-27">
-                  Log in
+                  Log in{this.state.name}
                 </span>
 
                 <div className="wrap-input100 validate-input">
@@ -123,7 +137,7 @@ export default class Login extends Component {
                   </button>
                 </div>
               </form>
-              <span class="badge badge-success">{this.state.msg}</span>
+              <span className="badge badge-success">{this.state.msg}</span>
            
             </div>
           </div>

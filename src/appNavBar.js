@@ -8,6 +8,7 @@ import Home from './home';
 import UserQuery from './userQuery';
 import Emp from './Emp1';
 import Admin from './admin';
+import Login1 from './login1';
 export default class AppNavbar extends Component {
     constructor(props) {
         super(props);
@@ -34,6 +35,7 @@ export default class AppNavbar extends Component {
           <Route exact path="/login" component={Login} />
           <Route exact path="/emp" component={Emp} />
           <Route exact path="/admin" component={Admin} />
+          <Route exact path="/login1" component={Login1} />
           </div>
         
          </Router>

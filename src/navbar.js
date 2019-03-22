@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import "./template/css/prac.css";
 
 export default class Nav extends Component {
   userLogOut() {
@@ -13,7 +14,7 @@ export default class Nav extends Component {
     return (
        
       <nav
-        className="navbar navbar-expand-lg navbar-light shadow"
+        className="navbar navbar-expand-lg navbar-light shadow "
         style={{ backgroundColor: "white" }}
       >
         <Link
@@ -63,7 +64,7 @@ export default class Nav extends Component {
             )}
             {!this.props.userSession ? (
               <Link
-                to="/login"
+                to="/login1"
                 className="nav-item nav-link"
                 style={{ color: "black" }}
               >

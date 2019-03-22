@@ -166,7 +166,7 @@ export default class Admin extends Component {
       >
         <Nav userSession={this.state.userSession} />
         <div className="admin-body">
-          <div className="row" shadow-sm>
+          <div className="row shadow-sm" >
             <div className="col-sm-3 ">
               <div className="card shadow-sm">
                 <div className="card-body bg-primary shadow-sm ">

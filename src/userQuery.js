@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Nav from "./navbar";
+import "./template/css/prac.css"
 import {
   BrowserRouter as Router,
   Route,
@@ -75,71 +76,71 @@ export default class UserQuery extends Component {
 
   render() {
     return (
-      <div style={{backgroundColor:"#f5f4fc"}}> 
+      <div > 
         {" "}
         <Nav userSession={this.state.userSession} />
-        <div className="card mt-1 shadow-sm" style={{width:"94%", marginLeft:"3%", minHeight:"600px", backgroundColor:"#f5f4fc"}}>
+        <div className="mt-1 " style={{width:"94%", marginLeft:"3%", minHeight:"600px"}}>
         <div
-          class="card border-primary mb-3 shadow"
-          style={{ minWidth: "330px", maxWidth: "30%" , margin:"50px auto" }}
+          className="card border-primary mb-3 shadow"
+          style={{ minWidth: "330px", maxWidth: "25%" , margin:"50px auto" }}
         >
-          <div class="card-header ">Header</div>
-          <div class="card-body text-primary bg-dark" >
-            <h5 class="card-title"> Select Query For :{this.state.company}</h5>
-            {/* <p class="card-text">
+          <div className="card-header ">Header</div>
+          <div className="card-body text-primary bg22" >
+            <h5 className="card-title"> Select Query For :{this.state.company}</h5>
+            {/* <p className="card-text">
               Someup the bulk of the card's content. {this.state.query}
             </p> */}
 
-            <div class="custom-control custom-radio">
+            <div className="custom-control custom-radio">
               <input
                 type="radio"
                 id="customRadio2"
                 name="rd1"
-                class="custom-control-input"
+                className="custom-control-input"
                 value="Flipkart"
                 onChange={this.handleRadio.bind(this)}
               />
-              <label class="custom-control-label" for="customRadio2">
+              <label className="custom-control-label" for="customRadio2">
                 Flipkart
               </label>
             </div>
-            <div class="custom-control custom-radio">
+            <div className="custom-control custom-radio">
               <input
                 type="radio"
                 id="customRadio3"
                 name="rd1"
-                class="custom-control-input"
-                value="Amazone"
+                className="custom-control-input"
+                value="Amazon"
                 onChange={this.handleRadio.bind(this)}
               />
-              <label class="custom-control-label" for="customRadio3">
+              <label className="custom-control-label" for="customRadio3">
                 Amazon
               </label>
             </div>
-            <div class="custom-control custom-radio">
+            <div className="custom-control custom-radio">
               <input
                 type="radio"
                 id="customRadio4"
                 name="rd1"
-                class="custom-control-input"
+                className="custom-control-input"
                 value="Myntra"
                 onChange={this.handleRadio.bind(this)}
               />
-              <label class="custom-control-label" for="customRadio4">
+              <label className="custom-control-label" for="customRadio4">
                 {" "}
                 Myntra
               </label>
             </div>
-            <div class="custom-control custom-radio">
+            <div className="custom-control custom-radio">
               <input
                 type="radio"
                 id="customRadio5"
                 name="rd1"
-                class="custom-control-input"
+                className="custom-control-input"
                 value="Other"
                 onChange={this.handleRadio.bind(this)}
               />
-              <label class="custom-control-label" for="customRadio5">
+              <label className="custom-control-label" for="customRadio5">
                 Other
               </label>
             </div>
