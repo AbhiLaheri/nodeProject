@@ -4,8 +4,11 @@ import "./template/css/prac.css";
 
 export default class Nav extends Component {
   userLogOut() {
+    localStorage.removeItem("email_token")
     this.setState({
       userSession: localStorage.removeItem("myCat")
+      
+      
     });
   }
 

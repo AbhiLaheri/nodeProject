@@ -18,7 +18,7 @@ export default class Emp extends Component {
         userSession: true
       });
     }
-
+    console.log("token",localStorage.getItem("email_token"));
     if (localStorage.getItem("myCat")) {
       localStorage.setItem("myCat", "Abhishek");
       console.log("begin login");

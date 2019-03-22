@@ -5,3 +5,7 @@ background-image: linear-gradient(rgb(153, 13, 235), rgb(32, 11, 90));
 .bg22{
     background-image: linear-gradient(rgb(17, 6, 31), rgb(75, 72, 90)); 
 }
+.bglogin2{
+    /* background-image: linear-gradient(rgb(22, 2, 49), rgb(8, 72, 90));  */
+    background-color: "red";
+}

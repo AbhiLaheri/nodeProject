@@ -43,9 +43,17 @@ export default class Login1 extends Component {
             console.log(responseJson.validate);
             this.setState({
               msg: responseJson.message,
-              s: responseJson.status,
-              typeUser: responseJson.validate[0].type
             });
+
+            if(responseJson.status){
+              localStorage.setItem("email_token", responseJson.validate[0].emp_email );
+              this.setState({
+                msg: responseJson.message,
+                s: responseJson.status,
+                typeUser: responseJson.validate[0].type
+              });
+            }
+            
             console.log(
               "type check",
               this.state.typeUser,
@@ -98,7 +106,7 @@ export default class Login1 extends Component {
           style={{
             width: "100%",
             marginLeft: "0%",
-            minHeight: "650px",
+            minHeight: "630px",
             backgroundColor: "black"
           }}
         >
