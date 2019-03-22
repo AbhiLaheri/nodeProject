@@ -29,7 +29,6 @@ export default class Admin extends Component {
     }
 
     if (localStorage.getItem("myCat")) {
-      localStorage.setItem("myCat", "Abhishek");
       console.log("begin login");
       fetch("http://localhost:8000/availableEpmloyee", {
         method: "POST",
@@ -73,7 +72,6 @@ export default class Admin extends Component {
   findUser(e) {
     console.log(e.target.value, "test");
     if (localStorage.getItem("myCat")) {
-      localStorage.setItem("myCat", "Abhishek");
       console.log("begin login");
       fetch("http://localhost:8000/find_user_query", {
         method: "POST",
@@ -122,7 +120,7 @@ export default class Admin extends Component {
       this.state.userEmail &&
       this.state.empEmail
     ) {
-      localStorage.setItem("myCat", "Abhishek");
+     
       console.log("begin login");
       fetch("http://localhost:8000/admin_assign_work", {
         method: "POST",
@@ -160,13 +158,13 @@ export default class Admin extends Component {
         className="shadow-sm "
         style={{
           backgroundColor: "white",
-          height: "100%",
+          minHeight:"650px",
           paddingBottom: "130px"
         }}
       >
         <Nav userSession={this.state.userSession} />
         <div className="admin-body">
-          <div className="row shadow-sm" >
+          <div className="row " >
             <div className="col-sm-3 ">
               <div className="card shadow-sm">
                 <div className="card-body bg-primary shadow-sm ">

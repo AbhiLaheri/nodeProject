@@ -9,3 +9,12 @@ background-image: linear-gradient(rgb(153, 13, 235), rgb(32, 11, 90));
     /* background-image: linear-gradient(rgb(22, 2, 49), rgb(8, 72, 90));  */
     background-color: "red";
 }
+.list-group-item:hover{
+    background-image: linear-gradient(to right, rgb(13, 13, 14) , rgb(217, 216, 224));
+    color: white;
+    transition-delay: 3ms;
+  }
+  /* .card-body{
+    height: 60px
+    }
+     */

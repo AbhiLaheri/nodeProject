@@ -17,7 +17,8 @@ export default class Login1 extends Component {
       re: false,
       msg: "",
       s: false,
-      typeUser: ""
+      typeUser: "",
+      sessionName:""
     };
   }
 
@@ -50,7 +51,8 @@ export default class Login1 extends Component {
               this.setState({
                 msg: responseJson.message,
                 s: responseJson.status,
-                typeUser: responseJson.validate[0].type
+                typeUser: responseJson.validate[0].type,
+                sessionName:responseJson.validate[0].name
               });
             }
             
@@ -83,17 +85,17 @@ export default class Login1 extends Component {
 
   render() {
     if (this.state.typeUser == "user") {
-      localStorage.setItem("myCat", "Abhishek");
+      localStorage.setItem("myCat", this.state.sessionName);
       // return <Redirect to="/admin" />;
       //  return <Redirect to="/emp" />;
       return <Redirect to="/user" />;
     }
     if (this.state.typeUser == "employee") {
-      localStorage.setItem("myCat", "emp");
+      localStorage.setItem("myCat", this.state.sessionName);
       return <Redirect to="/emp" />;
     }
     if (this.state.typeUser == "admin") {
-      localStorage.setItem("myCat", "admin");
+      localStorage.setItem("myCat",  this.state.sessionName);
       return <Redirect to="/admin" />;
     }
 

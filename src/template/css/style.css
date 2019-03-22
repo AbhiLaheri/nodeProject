@@ -19,14 +19,10 @@ margin-top: 3%;
   width: 100px;
   background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
   } */
-.card-body{
+/* .card-body{
 background-color: rgb(189, 188, 188);
-}
-.list-group-item:hover{
-  background-image: linear-gradient(to right, rgb(13, 13, 14) , rgb(217, 216, 224));
-  color: white;
-  transition-delay: 3ms;
-}
+} */
+
 .bt:hover{
   background-color: white;
 }
