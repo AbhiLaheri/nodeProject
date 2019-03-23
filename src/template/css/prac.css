@@ -1,0 +1,20 @@
+.col2{
+/* background-image: linear-gradient(rgba(9, 6, 37, 0), rgb(18, 8, 56)); */
+background-image: linear-gradient(rgb(153, 13, 235), rgb(32, 11, 90));
+}
+.bg22{
+    background-image: linear-gradient(rgb(17, 6, 31), rgb(75, 72, 90)); 
+}
+.bglogin2{
+    /* background-image: linear-gradient(rgb(22, 2, 49), rgb(8, 72, 90));  */
+    background-color: "red";
+}
+.list-modss:hover{
+    background-image: linear-gradient(to right, rgb(7, 7, 100) , rgb(126, 110, 235));
+    color: white;
+    transition-delay: 3ms;
+  }
+  /* .card-body{
+    height: 60px
+    }
+     */

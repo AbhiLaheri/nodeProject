@@ -4,29 +4,34 @@ body {
   color: #444;
   font-family: "Open Sans", sans-serif;
 }
-.navbar-light{
-  color : blue;
-}
+/* .navbar-light{
+  
+} */
 .admin-body{
 margin-left: 9%;
 margin-right: 2%;
 margin-top: 3%;
 
 }
-.card-body{
+/* .col2{
+  background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1));
+  height: 100px;
+  width: 100px;
+  background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+  } */
+/* .card-body{
 background-color: rgb(189, 188, 188);
-}
-.list-group-item:hover{
-  background-color: #a2bedd;
-}
+} */
+
 .bt:hover{
   background-color: white;
 }
-.lkk{
-  margin-left: 230%;
-}
+/* .lkk{
+  margin-left: 180%;
+} */
 .lk{
   margin-left: 9%;
+  min-width: 65%;
 }
 a {
   color: #007bff;
