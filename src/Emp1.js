@@ -13,7 +13,8 @@ export default class Emp extends Component {
       userDetails: "",
       user_email: "",
       query: "",
-      emp_email:""
+      emp_email:"",
+      noQuery:""
     };
   }
   componentDidMount() {
@@ -75,6 +76,18 @@ export default class Emp extends Component {
         .catch(error => {
           console.error(error);
         });
+        if(this.state.query ==""){
+          this.setState({
+            query:"query not found"
+          })
+        }
+    }
+    else{
+      if(this.state.noQuery ==""){
+        this.setState({
+          noQuery:"query not found"
+        })
+      }
     }
   }
   solveBtn(){
@@ -199,7 +212,7 @@ export default class Emp extends Component {
                     {this.state.query}{" "}
         {this.state.query== ""?"": <span className="badge btn badge-success  ml-3 "  onClick={this.solveBtn.bind(this)}> Solve</span>} 
         {this.state.query== ""?"": <span className="badge btn badge-danger ml-2"  onClick={this.reAssignBtn.bind(this)}> Re Assign</span>} 
-                  
+           { <span className="badge badge-danger ml-2" >{this.state.noQuery}</span>}       
                   </li>
                   {/* <li className="list-group-item">
                     {" "}

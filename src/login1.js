@@ -18,7 +18,8 @@ export default class Login1 extends Component {
       msg: "",
       s: false,
       typeUser: "",
-      sessionName:""
+      sessionName:"",
+      token:""
     };
   }
 
@@ -46,7 +47,25 @@ export default class Login1 extends Component {
               msg: responseJson.message,
             });
 
-            if(responseJson.status){
+            if(responseJson.status && responseJson.validate[0].type=="user"){
+              localStorage.setItem("email_token", responseJson.validate[0].user_email );
+              this.setState({
+                msg: responseJson.message,
+                s: responseJson.status,
+                typeUser: responseJson.validate[0].type,
+                sessionName:responseJson.validate[0].name
+              });
+            }
+            if(responseJson.status && responseJson.validate[0].type=="employee"){
+              localStorage.setItem("email_token", responseJson.validate[0].emp_email );
+              this.setState({
+                msg: responseJson.message,
+                s: responseJson.status,
+                typeUser: responseJson.validate[0].type,
+                sessionName:responseJson.validate[0].name
+              });
+            }
+            if(responseJson.status && responseJson.validate[0].type=="admin"){
               localStorage.setItem("email_token", responseJson.validate[0].emp_email );
               this.setState({
                 msg: responseJson.message,
@@ -86,8 +105,6 @@ export default class Login1 extends Component {
   render() {
     if (this.state.typeUser == "user") {
       localStorage.setItem("myCat", this.state.sessionName);
-      // return <Redirect to="/admin" />;
-      //  return <Redirect to="/emp" />;
       return <Redirect to="/user" />;
     }
     if (this.state.typeUser == "employee") {

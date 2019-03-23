@@ -170,42 +170,42 @@ export default class Admin extends Component {
                 <div className="card-body bg-primary shadow-sm ">
                   <h5 className="card-title ">All Company</h5>
                 </div>
-                <ul className="list-group list-group-flush">
-                  <li className="list-group-item ">
+                <ul className="list-group list-group-flush  ">
+                  <li className="list-group-item list-modss ">
                     <input
                       type="radio"
                       name="cm1"
                       value="flipkart"
                       onChange={this.findUser.bind(this)}
                     />
-                    Flipkart
+                   {"  "} Flipkart
                   </li>
-                  <li className="list-group-item">
+                  <li className="list-group-item list-modss">
                     <input
                       type="radio"
                       name="cm1"
                       value="myntra"
                       onChange={this.findUser.bind(this)}
                     />
-                    Myntra
+                    {"  "} Myntra
                   </li>
-                  <li className="list-group-item">
+                  <li className="list-group-item list-modss">
                     <input
                       type="radio"
                       name="cm1"
                       value="amazon"
                       onChange={this.findUser.bind(this)}
                     />
-                    Amazon
+                    {"  "} Amazon
                   </li>
-                  <li className="list-group-item">
+                  <li className="list-group-item list-modss">
                     <input
                       type="radio"
                       name="cm1"
                       value="other"
                       onChange={this.findUser.bind(this)}
                     />
-                    Other
+                    {"  "} Other
                   </li>
 
                   <button
@@ -225,7 +225,7 @@ export default class Admin extends Component {
                 </div>
                 <ul className="list-group list-group-flush">
                   {this.state.arr.map(single => (
-                    <li className="list-group-item">
+                    <li className="list-group-item list-modss">
                       {" "}
                       <input
                         type="radio"
@@ -233,7 +233,7 @@ export default class Admin extends Component {
                         value={single.emp_email}
                         onChange={this.handleRadio.bind(this)}
                       />
-                      {single.emp_email}
+                     {"  "}  {single.emp_email}
                     </li>
                   ))}
                 </ul>
@@ -247,7 +247,7 @@ export default class Admin extends Component {
                 </div>
                 <ul className="list-group list-group-flush ">
                   {this.state.user.map(single => (
-                    <li className="list-group-item">
+                    <li className="list-group-item list-modss">
                       {" "}
                       <input
                         type="radio"
@@ -255,7 +255,7 @@ export default class Admin extends Component {
                         value={single.user_email}
                         onChange={this.handleUserRadio.bind(this)}
                       />
-                      {single.user_email}
+                     {"  "}  {single.user_email}
                     </li>
                   ))}
                 </ul>
