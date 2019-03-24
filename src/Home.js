@@ -124,8 +124,7 @@ export default class Home extends Component {
             <div className="section-header">
               <h3>Team</h3>
               <p>
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque
+              Alone we can do so little, together we can do so much
               </p>
             </div>
 
@@ -135,8 +134,8 @@ export default class Home extends Component {
                   <img src={team1} className="img-fluid" alt="" />
                   <div className="member-info">
                     <div className="member-info-content">
-                      <h4>Walter White</h4>
-                      <span>Chief Executive Officer</span>
+                      <h4>Abhishek Kumar</h4>
+                      <span>Student</span>
                       <div class="social">
                         <a href="https//">
                           <i className="fa fa-twitter" />
@@ -164,8 +163,8 @@ export default class Home extends Component {
                   <img src={team2} class="img-fluid" alt="" />
                   <div className="member-info">
                     <div className="member-info-content">
-                      <h4>Sarah Jhonson</h4>
-                      <span>Product Manager</span>
+                      <h4>Rajbala Kumari</h4>
+                      <span>Student</span>
                       <div className="social">
                         <a href="https//">
                           <i className="fa fa-twitter" />
@@ -193,8 +192,8 @@ export default class Home extends Component {
                   <img src={team3} className="img-fluid" alt="" />
                   <div className="member-info">
                     <div className="member-info-content">
-                      <h4>William Anderson</h4>
-                      <span>CTO</span>
+                      <h4>Ankita Basak</h4>
+                      <span>Student</span>
                     </div>
                   </div>
                 </div>
@@ -205,8 +204,8 @@ export default class Home extends Component {
                   <img src={team4} class="img-fluid" alt="" />
                   <div class="member-info">
                     <div class="member-info-content">
-                      <h4>Amanda Jepson</h4>
-                      <span>Accountant</span>
+                      <h4>Renuka Kumari</h4>
+                      <span>Student</span>
                     </div>
                   </div>
                 </div>
