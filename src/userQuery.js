@@ -113,11 +113,11 @@ export default class UserQuery extends Component {
                   id="customRadio2"
                   name="rd1"
                   className="custom-control-input"
-                  value="Flipkart"
+                  value="MCA"
                   onChange={this.handleRadio.bind(this)}
                 />
                 <label className="custom-control-label" for="customRadio2">
-                  Flipkart
+                  MCA
                 </label>
               </div>
               <div className="custom-control custom-radio">
@@ -126,11 +126,11 @@ export default class UserQuery extends Component {
                   id="customRadio3"
                   name="rd1"
                   className="custom-control-input"
-                  value="Amazon"
+                  value="BCA"
                   onChange={this.handleRadio.bind(this)}
                 />
                 <label className="custom-control-label" for="customRadio3">
-                  Amazon
+                  BCA
                 </label>
               </div>
               <div className="custom-control custom-radio">
@@ -139,12 +139,12 @@ export default class UserQuery extends Component {
                   id="customRadio4"
                   name="rd1"
                   className="custom-control-input"
-                  value="Myntra"
+                  value="BBA"
                   onChange={this.handleRadio.bind(this)}
                 />
                 <label className="custom-control-label" for="customRadio4">
                   {" "}
-                  Myntra
+                  BBA
                 </label>
               </div>
               <div className="custom-control custom-radio">
