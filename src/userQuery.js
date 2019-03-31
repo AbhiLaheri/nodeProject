@@ -84,6 +84,10 @@ export default class UserQuery extends Component {
   }
 
   render() {
+    if ( !localStorage.getItem("myCat")) {
+     
+      return <Redirect to="/login1" />;
+    }
     return (
       <div>
         {" "}
@@ -94,9 +98,9 @@ export default class UserQuery extends Component {
         >
           <div
             className="card border-primary mb-3 shadow"
-            style={{ minWidth: "330px", maxWidth: "25%", margin: "30px auto" }}
+            style={{ minWidth: "330px", maxWidth: "25%", margin: "70px auto" }}
           >
-            <div className="card-header ">Header</div>
+            <div className="card-header bg23 text-white text-center ">Submit Your Query </div>
             <div className="card-body text-primary bg22">
               <h5 className="card-title">
                 {" "}
@@ -116,7 +120,7 @@ export default class UserQuery extends Component {
                   value="MCA"
                   onChange={this.handleRadio.bind(this)}
                 />
-                <label className="custom-control-label" for="customRadio2">
+                <label className="custom-control-label text-white" for="customRadio2">
                   MCA
                 </label>
               </div>
@@ -129,7 +133,7 @@ export default class UserQuery extends Component {
                   value="BCA"
                   onChange={this.handleRadio.bind(this)}
                 />
-                <label className="custom-control-label" for="customRadio3">
+                <label className="custom-control-label text-white" for="customRadio3">
                   BCA
                 </label>
               </div>
@@ -138,11 +142,12 @@ export default class UserQuery extends Component {
                   type="radio"
                   id="customRadio4"
                   name="rd1"
-                  className="custom-control-input"
+                  
+                  className="custom-control-input "
                   value="BBA"
                   onChange={this.handleRadio.bind(this)}
                 />
-                <label className="custom-control-label" for="customRadio4">
+                <label className="custom-control-label text-white" for="customRadio4">
                   {" "}
                   BBA
                 </label>
@@ -156,7 +161,7 @@ export default class UserQuery extends Component {
                   value="Other"
                   onChange={this.handleRadio.bind(this)}
                 />
-                <label className="custom-control-label" for="customRadio5">
+                <label className="custom-control-label text-white" for="customRadio5">
                   Other
                 </label>
               </div>

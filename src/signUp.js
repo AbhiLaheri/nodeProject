@@ -102,7 +102,7 @@ export default class SignUp1 extends Component {
             <div className="card text-white " style={{ maxWidth: "100%" }}>
               <div className="card-body bg-white shadow-sm">
                 <br />
-                <h2 className="card-title text-center text-danger ">SignUp</h2>
+                <h2 className="card-title text-center  "style={{fontFamily:"Harrington", color:"blue"}}>SignUp</h2>
                 <br />
 
                 <div className="form-group ">
@@ -127,7 +127,6 @@ export default class SignUp1 extends Component {
                   <input
                     type="text"
                     className="form-control"
-                    id="exampleInputEmail1"
                     aria-describedby="emailHelp"
                     placeholder="Name"
                     onChange={event => {
@@ -144,7 +143,6 @@ export default class SignUp1 extends Component {
                   <input
                     type="text"
                     className="form-control"
-                    id="exampleInputEmail1"
                     aria-describedby="emailHelp"
                     placeholder="Phone Number"
                     onChange={event => {

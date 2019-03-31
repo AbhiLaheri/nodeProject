@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 //import { Button, FormControl, NavDropdown,Form,Nav,Navbar } from 'react-bootstrap';
 import {BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './template/css/style.css'
-import Home from './home';
+import Home from './Home';
 import UserQuery from './userQuery';
 import Emp from './Emp1';
 import Admin from './admin';
 import Login1 from './login1';
 import SignUp1 from './signUp';
+import Email from './email';
 export default class AppNavbar extends Component {
     constructor(props) {
         super(props);
@@ -35,6 +36,7 @@ export default class AppNavbar extends Component {
           <Route exact path="/admin" component={Admin} />
           <Route exact path="/login1" component={Login1} />
           <Route exact path="/signup" component={SignUp1} />
+          <Route exact path="/email" component={Email} />
           </div>
         
          </Router>

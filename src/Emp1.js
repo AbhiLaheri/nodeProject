@@ -1,10 +1,16 @@
 import React, { Component } from "react";
 import AppNavbar from "./appNavBar";
-// import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Redirect
+} from "react-router-dom";
 import Nav from "./navbar";
 //import "./template/css/style.css";
 //import { Button, Form, Col } from 'react-bootstrap';
 import "./template/css/prac.css";
+import Email from "./email";
 export default class Emp extends Component {
   constructor(props) {
     super(props);
@@ -13,8 +19,9 @@ export default class Emp extends Component {
       userDetails: "",
       user_email: "",
       query: "",
-      emp_email:"",
-      noQuery:""
+      emp_email: "",
+      noQuery: "",
+      notSolve:""
     };
   }
   componentDidMount() {
@@ -44,7 +51,8 @@ export default class Emp extends Component {
           this.setState({
             msg: responseJson.message,
             user_email: responseJson.result,
-            emp_email: localStorage.getItem("email_token")
+            emp_email: localStorage.getItem("email_token"),
+            notSolve:"notSolve"
           });
         })
         .catch(error => {
@@ -76,23 +84,21 @@ export default class Emp extends Component {
         .catch(error => {
           console.error(error);
         });
-        if(this.state.query ==""){
-          this.setState({
-            query:"query not found"
-          })
-        }
-    }
-    else{
-      if(this.state.noQuery ==""){
+      if (this.state.query == "") {
         this.setState({
-          noQuery:"query not found"
-        })
+          query: "query not found"
+        });
+      }
+    } else {
+      if (this.state.noQuery == "") {
+        this.setState({
+          noQuery: "query not found"
+        });
       }
     }
   }
-  solveBtn(){
+  solveBtn() {
     if (this.state.user_email != "") {
-      
       console.log("start solve query");
       fetch("http://localhost:8000/emp_solve_user_query", {
         method: "POST",
@@ -109,8 +115,9 @@ export default class Emp extends Component {
         .then(responseJson => {
           console.log(responseJson);
           this.setState({
-           query:"",
-           user_email:""
+            query: "",
+            user_email: "",
+            notSolve:""
           });
         })
         .catch(error => {
@@ -120,7 +127,6 @@ export default class Emp extends Component {
   }
   reAssignBtn() {
     if (this.state.emp_email != "" && this.state.user_email != "") {
-     
       console.log("start reassign");
       fetch("http://localhost:8000/emp_reassion_user_query", {
         method: "POST",
@@ -137,8 +143,9 @@ export default class Emp extends Component {
         .then(responseJson => {
           console.log(responseJson);
           this.setState({
-            user_email:"",
-            query:""
+            user_email: "",
+            query: "",
+            notSolve:""
           });
         })
         .catch(error => {
@@ -148,6 +155,10 @@ export default class Emp extends Component {
   }
 
   render() {
+    if ( !localStorage.getItem("myCat")) {
+     
+      return <Redirect to="/login1" />;
+    }
     return (
       <div>
         <Nav userSession={this.state.userSession} />
@@ -155,7 +166,7 @@ export default class Emp extends Component {
         <div
           className="mt-1 "
           style={{
-            marginLeft: "8%",
+            marginLeft: "10%",
             marginRight: "2%",
             marginTop: "4%",
             alignSelf: "1px auto"
@@ -163,35 +174,38 @@ export default class Emp extends Component {
         >
           <div
             className="row  "
-            style={{ minHeight: "600px", marginTop: "50px" }}
+            style={{ minHeight: "600px", marginTop: "60px" }}
           >
-            <div className="col-sm-3  ">
-              <div className="card ">
-                <div className="card-body bg-primary ">
-                  <h5 className="card-title text-center">Employee Details </h5>
+            <div className="col-sm-3 " style={{marginLeft:" -10px"}}>
+              <div className="card " >
+                <div className="card-body bg-primary  text-white" style={{height:"60px"}}>
+                  <h5 className="card-title  ">DashBoard </h5>
                 </div>
                 <ul className="list-group list-group-flush">
-                  <li className="list-group-item text-center">
+                  <li className="list-group-item  ">
                     welcome {this.state.userDetails}
                   </li>
-                  <li className="list-group-item text-center">
+                  <li className="list-group-item  ">
                     Email: {localStorage.getItem("email_token")}
                   </li>
                 </ul>
               </div>
 
-              <div className="card mt-4">
-                <div className="card-body bg-primary ">
-                  <h5 className="card-title text-center">User Details </h5>
+              <div className="card mb-4" style={{marginTop:"36px"}}>
+                <div className="card-body bg-primary  text-white" style={{height:"60px"}}>
+                  <h5 className="card-title  ">User Details </h5>
                 </div>
                 <ul className="list-group list-group-flush">
-                  <li className="list-group-item text-center">
+                  <li className="list-group-item  ">
                     Email: {this.state.user_email}
+                  </li>
+                  <li className="list-group-item  ">
+                    Status: {this.state.user_email !=""?this.state.notSolve:""}
                   </li>
                   <li className="list-group">
                     <button
                       type="submit"
-                      className="btn btn-primary text-center shadow"
+                      className="btn btn-primary   shadow"
                       style={{ width: "100%" }}
                       onClick={this.showQuery.bind(this)}
                     >
@@ -202,38 +216,54 @@ export default class Emp extends Component {
               </div>
             </div>
 
-            <div className="col-sm-8  ">
+           <div className="col-sm-3 mb-4 " style={{marginLeft:" -10px"}}>
+              <Email />
+            </div>
+
+
+
+            <div className="col-sm-5  "  style={{marginLeft:" -10px"}}>
               <div className="card ">
-                <div className="card-body bg-primary ">
+                <div className="card-body bg-primary  text-white " style={{height:"60px"}}>
                   <h5 className="card-title ">User Query </h5>
                 </div>
                 <ul className="list-group list-group-flush">
                   <li className="list-group-item">
                     {this.state.query}{" "}
-        {this.state.query== ""?"": <span className="badge btn badge-success  ml-3 "  onClick={this.solveBtn.bind(this)}> Solve</span>} 
-        {this.state.query== ""?"": <span className="badge btn badge-danger ml-2"  onClick={this.reAssignBtn.bind(this)}> Re Assign</span>} 
-           { <span className="badge badge-danger ml-2" >{this.state.noQuery}</span>}       
+                    {this.state.query == "" ? (
+                      ""
+                    ) : (
+                      <span
+                        className="badge btn badge-success  ml-3 "
+                        onClick={this.solveBtn.bind(this)}
+                      >
+                      
+                        Solve
+                      </span>
+                    )}
+                    {this.state.query == "" ? (
+                      ""
+                    ) : (
+                      <span
+                        className="badge btn badge-danger ml-2"
+                        onClick={this.reAssignBtn.bind(this)}
+                      >
+                      
+                        Re Assign
+                      </span>
+                    )}
+                    {
+                      <span className="badge badge-danger ml-2">
+                        {this.state.noQuery}
+                      </span>
+                    }
                   </li>
-                  {/* <li className="list-group-item">
-                    {" "}
-                    <button
-                      type="submit"
-                      className="btn btn-primary text-center shadow ml-1"
-                      style={{ width: "47%" }}
-                    >
-                      solve
-                    </button>{" "}
-                    <button
-                      type="submit"
-                      className="btn btn-primary text-center shadow ml-4"
-                      style={{ width: "47%" }}
-                    >
-                      Reassion
-                    </button>{" "}
-                  </li> */}
                 </ul>
               </div>
             </div>
+
+       
+
           </div>
         </div>
       </div>

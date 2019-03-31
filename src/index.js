@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 //import Routerr from './loginAndSignup/router';
 //import Login from './login';
-import Admin from './admin';
+// import Admin from './admin';
 import * as serviceWorker from './serviceWorker';
 //import Emp from './Emp1';
 import AppNavbar from './appNavBar';

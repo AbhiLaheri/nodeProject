@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import prac from "./template/css/prac.css";
 
 import {
   BrowserRouter as Router,
@@ -49,6 +50,7 @@ export default class Login1 extends Component {
 
             if(responseJson.status && responseJson.validate[0].type=="user"){
               localStorage.setItem("email_token", responseJson.validate[0].user_email );
+              localStorage.setItem("type", "user" );
               this.setState({
                 msg: responseJson.message,
                 s: responseJson.status,
@@ -58,6 +60,7 @@ export default class Login1 extends Component {
             }
             if(responseJson.status && responseJson.validate[0].type=="employee"){
               localStorage.setItem("email_token", responseJson.validate[0].emp_email );
+              localStorage.setItem("type", "employee" );
               this.setState({
                 msg: responseJson.message,
                 s: responseJson.status,
@@ -67,6 +70,7 @@ export default class Login1 extends Component {
             }
             if(responseJson.status && responseJson.validate[0].type=="admin"){
               localStorage.setItem("email_token", responseJson.validate[0].emp_email );
+              localStorage.setItem("type", "admin" );
               this.setState({
                 msg: responseJson.message,
                 s: responseJson.status,
@@ -121,12 +125,12 @@ export default class Login1 extends Component {
         <Nav userSession={this.state.userSession} />
 
         <div
-          className="mt-1 "
+          className="mt-1 bglogin"
           style={{
             width: "100%",
             marginLeft: "0%",
-            minHeight: "630px",
-            backgroundColor: "black"
+            minHeight: "610px",
+            // backgroundColor: "black"
           }}
         >
           <br />
@@ -138,7 +142,7 @@ export default class Login1 extends Component {
             <div className="card text-white " style={{ maxWidth: "100%" }}>
               <div className="card-body bg-white shadow-sm">
                 <br />
-                <h2 className="card-title text-center text-danger ">Login</h2>
+                <h2 className="card-title text-center  " style={{fontFamily:"Harrington", color:"blue"}}>Login</h2>
                 <br />
 
                 <div className="form-group ">

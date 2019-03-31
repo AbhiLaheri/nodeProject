@@ -3,18 +3,39 @@
 background-image: linear-gradient(rgb(153, 13, 235), rgb(32, 11, 90));
 }
 .bg22{
-    background-image: linear-gradient(rgb(17, 6, 31), rgb(75, 72, 90)); 
+    background-image: linear-gradient(rgb(12, 9, 36), rgb(58, 36, 172)); 
+}
+.bg23{
+  background-image: linear-gradient(rgb(32, 10, 63), rgb(29, 12, 128)); 
 }
 .bglogin2{
     /* background-image: linear-gradient(rgb(22, 2, 49), rgb(8, 72, 90));  */
     background-color: "red";
 }
 .list-modss:hover{
-    background-image: linear-gradient(to right, rgb(7, 7, 100) , rgb(126, 110, 235));
+    background-image: linear-gradient(to right, rgb(19, 18, 77) , rgb(84, 73, 238));
     color: white;
     transition-delay: 3ms;
   }
-  /* .card-body{
-    height: 60px
-    }
-     */
+  .bglogin{
+    background-image: linear-gradient(rgb(10, 10, 10), rgb(39, 39, 41)); 
+  
+}
+
+
+/* @keyframes example {
+    from {background-image: linear-gradient(rgb(24, 24, 82), rgb(49, 33, 99));}
+    to {background-image: linear-gradient(rgb(30, 29, 31), rgb(19, 4, 102));}
+  }
+  .bglogin {
+    width: 100px;
+    height: 100px;
+    background-image: linear-gradient(rgb(11, 11, 12), rgb(1, 0, 5));
+    -webkit-animation-name: example; 
+    -webkit-animation-duration: 6s; 
+    animation-name: example;
+    animation-duration: 6s;
+    opacity: 22;
+  }
+
+   */

@@ -1,5 +1,11 @@
 import React, { Component } from "react";
 import AppNavbar from "./appNavBar";
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Redirect
+} from "react-router-dom";
 import "./template/css/style.css";
 import Nav from "./navbar";
 export default class Admin extends Component {
@@ -153,6 +159,10 @@ export default class Admin extends Component {
   }
 
   render() {
+    if ( !localStorage.getItem("myCat")) {
+     
+      return <Redirect to="/login1" />;
+    }
     return (
       <div
         className="shadow-sm "
@@ -175,34 +185,34 @@ export default class Admin extends Component {
                     <input
                       type="radio"
                       name="cm1"
-                      value="flipkart"
+                      value="MCA"
                       onChange={this.findUser.bind(this)}
                     />
-                   {"  "} Flipkart
+                   {"  "} MCA
                   </li>
                   <li className="list-group-item list-modss">
                     <input
                       type="radio"
                       name="cm1"
-                      value="myntra"
+                      value="BBA"
                       onChange={this.findUser.bind(this)}
                     />
-                    {"  "} Myntra
+                    {"  "} BBA
                   </li>
                   <li className="list-group-item list-modss">
                     <input
                       type="radio"
                       name="cm1"
-                      value="amazon"
+                      value="BCA"
                       onChange={this.findUser.bind(this)}
                     />
-                    {"  "} Amazon
+                    {"  "} BCA
                   </li>
                   <li className="list-group-item list-modss">
                     <input
                       type="radio"
                       name="cm1"
-                      value="other"
+                      value="Other"
                       onChange={this.findUser.bind(this)}
                     />
                     {"  "} Other

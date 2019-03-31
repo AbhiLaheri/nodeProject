@@ -201,7 +201,7 @@ export default class Home extends Component {
 
               <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                 <div class="member">
-                  <img src={team4} class="img-fluid" alt="" />
+                  <img src={team4} class="img-fluid" alt=""  style={{height:"250px"}}/>
                   <div class="member-info">
                     <div class="member-info-content">
                       <h4>Renuka Kumari</h4>

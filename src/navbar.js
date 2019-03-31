@@ -4,18 +4,16 @@ import "./template/css/prac.css";
 
 export default class Nav extends Component {
   userLogOut() {
-    localStorage.removeItem("email_token")
+    localStorage.removeItem("email_token");
+    localStorage.removeItem("type");
     this.setState({
       userSession: localStorage.removeItem("myCat")
-      
-      
     });
   }
 
   render() {
     console.log(this.props.userSession);
     return (
-       
       <nav
         className="navbar navbar-expand-lg navbar-light shadow "
         style={{ backgroundColor: "white" }}
@@ -47,13 +45,42 @@ export default class Nav extends Component {
             >
               Home <span className="sr-only">(current)</span>
             </Link>
-            <Link
-              to="/"
-              className="nav-item nav-link"
-              style={{ color: "black" }}
-            >
-              Services
-            </Link>
+   {/* start nested if */}
+            {localStorage.getItem("type") == "employee" ? (
+              <Link
+                to="/emp"
+                className="nav-item nav-link"
+                style={{ color: "black" }}
+              >
+                DashBoard
+              </Link>
+            ) : localStorage.getItem("type") == "user" ? (
+              <Link
+                to="/user"
+                className="nav-item nav-link"
+                style={{ color: "black" }}
+              >
+                DashBoard
+              </Link>
+            ) : localStorage.getItem("type") == "admin" ? (
+              <Link
+                to="/admin"
+                className="nav-item nav-link"
+                style={{ color: "black" }}
+              >
+                DashBoard
+              </Link>
+            ) : (
+              <a
+                href="#about"
+                className=" nav-item nav-link"
+                style={{ color: "black" }}
+              >
+                AboutUs
+              </a>
+            )}
+    {/* End nested if */}
+
             {!this.props.userSession ? (
               <Link
                 to="/signup"
@@ -83,18 +110,12 @@ export default class Nav extends Component {
                 LogOut
               </Link>
             )}
-            <Link
-              to="/"
-              className="nav-item nav-link"
-              style={{ color: "black" }}
-              onClick={this.userLogOut}
-            >
+            <span className="nav-item nav-link" style={{ color: "black" }}>
               {localStorage.getItem("myCat")}
-            </Link>
+            </span>
           </div>
         </div>
       </nav>
-     
     );
   }
 }
