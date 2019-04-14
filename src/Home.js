@@ -87,11 +87,11 @@ export default class Home extends Component {
                     />
                   </div>
                   <h4 className="title">
-                    <a href="https//s">Lorem Ipsum</a>
+                    <a href="https//s">Query Solve</a>
                   </h4>
                   <p className="description">
-                    Voluptatum deleniti atque corrupti quos dolores et quas
-                    molestias excepturi sint occaecati cupiditate non provident
+                  We solve all type of Web Appliction query,
+                   We solve your query within 24 Hr and We provide good solution to your query.
                   </p>
                 </div>
               </div>
@@ -107,11 +107,10 @@ export default class Home extends Component {
                     />
                   </div>
                   <h4 className="title">
-                    <a href="https//">Dolor Sitema</a>
+                    <a href="https//">Upcoming Service</a>
                   </h4>
                   <p className="description">
-                    Minim veniam, quis nostrud exercitation ullamco laboris nisi
-                    ut aliquip ex ea commodo consequat tarad limino ata
+                    Our Upcoming service is very intersting. You can live chat with our expert and they provide good solution to your query.
                   </p>
                 </div>
               </div>
@@ -239,12 +238,12 @@ export default class Home extends Component {
                     <li>
                       <a href="#">Services</a>
                     </li>
-                    <li>
+                    {/* <li>
                       <a href="#">Terms of service</a>
                     </li>
                     <li>
                       <a href="#">Privacy policy</a>
-                    </li>
+                    </li> */}
                   </ul>
                 </div>
 
@@ -257,14 +256,14 @@ export default class Home extends Component {
                     India <br />
                     <strong>Phone:</strong> +1 8888 9999 55
                     <br />
-                    <strong>Email:</strong> info@example.com
+                    <strong>Email:</strong> info@querysolver.com
                     <br />
                   </p>
                 </div>
 
                 <div className="col-lg-3 col-md-6 footer-newsletter">
                   <h4>Upcoming Service</h4>
-                  <p>Comming Soon</p>
+                  <p>Live Chat </p>
                 </div>
               </div>
             </div>

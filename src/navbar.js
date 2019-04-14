@@ -45,31 +45,112 @@ export default class Nav extends Component {
             >
               Home <span className="sr-only">(current)</span>
             </Link>
-   {/* start nested if */}
+            {/* start nested if */}
             {localStorage.getItem("type") == "employee" ? (
-              <Link
-                to="/emp"
-                className="nav-item nav-link"
-                style={{ color: "black" }}
+              <div class="dropdown">
+              <button
+                class="btn btn-white nav-item nav-link dropdown-toggle" style={{color:"black"}}
+                type="button"
+                id="dropdownMenuButton"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
               >
-                DashBoard
-              </Link>
+                 Option
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <Link
+              to="/emp"
+              className="dropdown-item"
+              style={{ color: "black" }}
+            >
+              DashBoard
+            </Link>
+            <Link
+              to="/email"
+              className="dropdown-item"
+              style={{ color: "black" }}
+            >
+             Send Email
+            </Link>
+          
+              </div>
+            </div>
             ) : localStorage.getItem("type") == "user" ? (
-              <Link
-                to="/user"
-                className="nav-item nav-link"
-                style={{ color: "black" }}
+
+              <div class="dropdown">
+              <button
+                class="btn btn-white nav-item nav-link dropdown-toggle" style={{color:"black"}}
+                type="button"
+                id="dropdownMenuButton"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
               >
-                DashBoard
-              </Link>
+                 Option
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <Link
+              to="/userallquery"
+              className="dropdown-item"
+              style={{ color: "black" }}
+            >
+              DashBoard
+            </Link>
+            <Link
+              to="/user"
+              className="dropdown-item"
+              style={{ color: "black" }}
+            >
+             Add New Query
+            </Link>
+          
+              </div>
+            </div>
+
             ) : localStorage.getItem("type") == "admin" ? (
-              <Link
+              // <Link
+              //   to="/admin"
+              //   className="nav-item nav-link"
+              //   style={{ color: "black" }}
+              // >
+              //   DashBoard
+              // </Link>
+              <div class="dropdown">
+                <button
+                  class="btn btn-white nav-item nav-link dropdown-toggle" style={{color:"black"}}
+                  type="button"
+                  id="dropdownMenuButton"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                   Option
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <Link
                 to="/admin"
-                className="nav-item nav-link"
+                className="dropdown-item"
                 style={{ color: "black" }}
               >
                 DashBoard
               </Link>
+              <Link
+                to="/barGraph"
+                className="dropdown-item"
+                style={{ color: "black" }}
+              >
+                Analyse
+              </Link>
+              <Link
+                to="/addemployee"
+                className="dropdown-item"
+                style={{ color: "black" }}
+              >
+               Add New Employee
+              </Link>
+                </div>
+              </div>
             ) : (
               <a
                 href="#about"
@@ -79,7 +160,7 @@ export default class Nav extends Component {
                 AboutUs
               </a>
             )}
-    {/* End nested if */}
+            {/* End nested if */}
 
             {!this.props.userSession ? (
               <Link

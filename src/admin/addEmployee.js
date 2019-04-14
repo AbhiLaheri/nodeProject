@@ -6,28 +6,36 @@ import {
   Link,
   Redirect
 } from "react-router-dom";
-import Nav from "./navbar";
+import Nav from "../navbar";
 
-export default class SignUp1 extends Component {
+export default class AddEmployee extends Component {
   constructor(props) {
     super(props);
     this.state = {
       name: "",
       password: "",
       msg: "",
-      user_email:"",
+      emp_email:"",
       phone_number: "",
       Confirm_Password:"h",
-      redirectToLogin:false
+  
      
     };
   }
+  
+  componentDidMount() {
+    if (localStorage.getItem("myCat")) {
+      this.setState({
+        userSession: true
+      });
+    }
+  }
 
-  signup() {
-    if (this.state.name != "" && this.state.phone_number != "" && this.state.user_email != "") {
+  addEmployee() {
+    if (this.state.name != "" && this.state.phone_number != "" && this.state.emp_email != "") {
       if (this.state.password != "" && this.state.password==this.state.Confirm_Password) {
         console.log("begin login");
-        fetch("http://localhost:8000/signUp", {
+        fetch("http://localhost:8000/addEmployee", {
           method: "POST",
           headers: {
             Accept: "application/json",
@@ -35,7 +43,7 @@ export default class SignUp1 extends Component {
           },
           body: JSON.stringify({
             name: this.state.name,
-            user_email: this.state.user_email,
+            emp_email: this.state.emp_email,
             phone_number: this.state.phone_number,
             password: this.state.password
           })
@@ -66,7 +74,7 @@ export default class SignUp1 extends Component {
         alert("enter Password!!");
       }
     } else {
-      alert("enter neme!!!!");
+      alert("enter All!!!!");
     }
     // if (localStorage.getItem("myCat")) {
     //   this.setState({
@@ -76,7 +84,8 @@ export default class SignUp1 extends Component {
   }
 
   render() {
-    if (this.state.redirectToLogin) {
+    if ( !localStorage.getItem("myCat")) {
+     
       return <Redirect to="/login1" />;
     }
 
@@ -89,7 +98,7 @@ export default class SignUp1 extends Component {
           style={{
             width: "100%",
             marginLeft: "0%",
-            minHeight: "630px",
+            minHeight: "710px",
             backgroundColor: "#1b1b1c"
           }}
         >
@@ -97,12 +106,12 @@ export default class SignUp1 extends Component {
           <br />
           <div
             className="card  mb-3 shadow "
-            style={{ minWidth: "300px", maxWidth: "25%", margin: "50px auto" }}
+            style={{ minWidth: "300px", maxWidth: "25%", margin: "30px auto" }}
           >
             <div className="card text-white " style={{ maxWidth: "100%" }}>
               <div className="card-body bg-white shadow-sm">
                 <br />
-                <h2 className="card-title text-center  "style={{fontFamily:"Harrington", color:"blue"}}>SignUp</h2>
+                <h2 className="card-title text-center  "style={{fontFamily:"Verdana", color:"blue"}}>Employee</h2>
                 <br />
 
                 <div className="form-group ">
@@ -115,7 +124,7 @@ export default class SignUp1 extends Component {
                     placeholder="Enter email"
                     onChange={event => {
                       this.setState({
-                        user_email: event.target.value
+                        emp_email: event.target.value
                       });
                     }}
                   />
@@ -190,11 +199,11 @@ export default class SignUp1 extends Component {
                 <center>
                   <button
                     type="submit"
-                    className="btn btn-primary text-center mt-4 shadow"
+                    className="btn btn-primary text-center mt-3 shadow"
                     style={{ width: "100%" }}
-                    onClick={this.signup.bind(this)}
+                    onClick={this.addEmployee.bind(this)}
                   >
-                    SignUp
+                    Add Employee
                   </button>
                      <span className="badge badge-success">{this.state.msg}</span>
                 </center>

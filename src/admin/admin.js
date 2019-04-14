@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import AppNavbar from "./appNavBar";
+import AppNavbar from "../appNavBar";
 import {
   BrowserRouter as Router,
   Route,
   Link,
   Redirect
 } from "react-router-dom";
-import "./template/css/style.css";
-import Nav from "./navbar";
+import "../template/css/style.css";
+import Nav from "../navbar";
 export default class Admin extends Component {
   constructor(props) {
     super(props);
@@ -19,7 +19,7 @@ export default class Admin extends Component {
       userMsg: "",
       userEmail: "",
       allocatMsg: "",
-      company: ""
+      subject: ""
     };
   }
 
@@ -86,7 +86,7 @@ export default class Admin extends Component {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          company: e.target.value
+          subject: e.target.value
         })
       })
         .then(response => response.json())
@@ -178,35 +178,44 @@ export default class Admin extends Component {
             <div className="col-sm-3 ">
               <div className="card shadow-sm">
                 <div className="card-body bg-primary shadow-sm ">
-                  <h5 className="card-title ">All Company</h5>
+                  <h5 className="card-title ">All Subject</h5>
                 </div>
                 <ul className="list-group list-group-flush  ">
                   <li className="list-group-item list-modss ">
                     <input
                       type="radio"
                       name="cm1"
-                      value="MCA"
+                      value="Node"
                       onChange={this.findUser.bind(this)}
                     />
-                   {"  "} MCA
+                   {"  "} Node
                   </li>
                   <li className="list-group-item list-modss">
                     <input
                       type="radio"
                       name="cm1"
-                      value="BBA"
+                      value="React"
                       onChange={this.findUser.bind(this)}
                     />
-                    {"  "} BBA
+                    {"  "} React
                   </li>
                   <li className="list-group-item list-modss">
                     <input
                       type="radio"
                       name="cm1"
-                      value="BCA"
+                      value="Angular"
                       onChange={this.findUser.bind(this)}
                     />
-                    {"  "} BCA
+                    {"  "} Angular
+                  </li>
+                  <li className="list-group-item list-modss">
+                    <input
+                      type="radio"
+                      name="cm1"
+                      value="Django"
+                      onChange={this.findUser.bind(this)}
+                    />
+                    {"  "} Django
                   </li>
                   <li className="list-group-item list-modss">
                     <input
@@ -228,7 +237,7 @@ export default class Admin extends Component {
 
               </div> {(this.state.allocatMsg=="plz Select All")?<span className="badge badge-danger">{this.state.allocatMsg}</span>:<span className="badge badge-success">{this.state.allocatMsg}</span>}  
             </div>
-            <div className="col-sm-4  ">
+            <div className="col-sm-4  " style={{marginLeft: -20}}>
               <div className="card ">
                 <div className="card-body bg-primary ">
                   <h5 className="card-title ">All available Employee </h5>
@@ -250,7 +259,7 @@ export default class Admin extends Component {
               </div>
             </div>
 
-            <div className="col-sm-4  ">
+            <div className="col-sm-4  " style={{marginLeft: -20}}>
               <div className="card ">
                 <div className="card-body bg-primary ">
                   <h5 className="card-title ">All User Token: </h5>
@@ -262,10 +271,10 @@ export default class Admin extends Component {
                       <input
                         type="radio"
                         name="us1"
-                        value={single.user_email}
+                        value={single._id}
                         onChange={this.handleUserRadio.bind(this)}
                       />
-                     {"  "}  {single.user_email}
+                     {"  "}  {single.user_email} 
                     </li>
                   ))}
                 </ul>

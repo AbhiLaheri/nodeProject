@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Nav from "./navbar";
-import "./template/css/prac.css";
+import Nav from "../navbar";
+import "../template/css/prac.css";
 import {
   BrowserRouter as Router,
   Route,
@@ -12,7 +12,7 @@ export default class UserQuery extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      company: "",
+      subject: "",
       query: "",
       userSession: false,
       msg: ""
@@ -28,13 +28,13 @@ export default class UserQuery extends Component {
   }
   handleRadio(e) {
     this.setState({
-      company: e.target.value,
+      subject: e.target.value,
       userSession: localStorage.getItem("myCat")
     });
   }
   formReset() {
     this.setState({
-      company: "",
+      subject: "",
       query: "",
       msg:"",
       rd1:""
@@ -47,9 +47,9 @@ export default class UserQuery extends Component {
   }
   querSubmit() {
     if (this.state.query != "" ) {
-      if (this.state.company != "" ) {
+      if (this.state.subject != "" ) {
         console.log("begin login");
-        fetch("http://localhost:8000/addquery", {
+        fetch("http://localhost:8000/add_user_query", {
           method: "POST",
           headers: {
             Accept: "application/json",
@@ -58,7 +58,7 @@ export default class UserQuery extends Component {
           body: JSON.stringify({
             user_email: localStorage.getItem("email_token"),
             query: this.state.query,
-            company: this.state.company
+            subject: this.state.subject
           })
         })
           .then(response => response.json())
@@ -76,7 +76,7 @@ export default class UserQuery extends Component {
             console.error(error);
           });
       } else {
-        alert("enter COMPANY!!!!");
+        alert("enter subject!!!!");
       }
     } else {
       alert("enter query!!!!");
@@ -90,7 +90,6 @@ export default class UserQuery extends Component {
     }
     return (
       <div>
-        {" "}
         <Nav userSession={this.state.userSession} />
         <div
           className="mt-1 "
@@ -98,14 +97,14 @@ export default class UserQuery extends Component {
         >
           <div
             className="card border-primary mb-3 shadow"
-            style={{ minWidth: "330px", maxWidth: "25%", margin: "70px auto" }}
+            style={{ minWidth: "340px", maxWidth: "25%", margin: "50px auto" }}
           >
             <div className="card-header bg23 text-white text-center ">Submit Your Query </div>
             <div className="card-body text-primary bg22">
               <h5 className="card-title">
                 {" "}
                 Select Query For :{"  "}
-                {this.state.company}
+                {this.state.subject}
               </h5>
               {/* <p className="card-text">
               Someup the bulk of the card's content. {this.state.query}
@@ -117,11 +116,11 @@ export default class UserQuery extends Component {
                   id="customRadio2"
                   name="rd1"
                   className="custom-control-input"
-                  value="MCA"
+                  value="Node"
                   onChange={this.handleRadio.bind(this)}
                 />
                 <label className="custom-control-label text-white" for="customRadio2">
-                  MCA
+                Node
                 </label>
               </div>
               <div className="custom-control custom-radio">
@@ -130,11 +129,11 @@ export default class UserQuery extends Component {
                   id="customRadio3"
                   name="rd1"
                   className="custom-control-input"
-                  value="BCA"
+                  value="React"
                   onChange={this.handleRadio.bind(this)}
                 />
                 <label className="custom-control-label text-white" for="customRadio3">
-                  BCA
+                React
                 </label>
               </div>
               <div className="custom-control custom-radio">
@@ -144,12 +143,12 @@ export default class UserQuery extends Component {
                   name="rd1"
                   
                   className="custom-control-input "
-                  value="BBA"
+                  value="Angular"
                   onChange={this.handleRadio.bind(this)}
                 />
                 <label className="custom-control-label text-white" for="customRadio4">
                   {" "}
-                  BBA
+                  Angular
                 </label>
               </div>
               <div className="custom-control custom-radio">
@@ -158,14 +157,27 @@ export default class UserQuery extends Component {
                   id="customRadio5"
                   name="rd1"
                   className="custom-control-input"
-                  value="Other"
+                  value="Django"
                   onChange={this.handleRadio.bind(this)}
                 />
                 <label className="custom-control-label text-white" for="customRadio5">
+                  Django
+                </label>
+              </div>
+              <div className="custom-control custom-radio">
+                <input
+                  type="radio"
+                  id="customRadio6"
+                  name="rd1"
+                  className="custom-control-input"
+                  value="Other"
+                  onChange={this.handleRadio.bind(this)}
+                />
+                <label className="custom-control-label text-white" for="customRadio6">
                   Other
                 </label>
               </div>
-              <div className="form-group mt-2" style={{}}>
+              <div className="form-group mt-2" >
                 <label for="comment">Write Your Query Here :</label>
                 <textarea
                   className="form-control mt-2"
@@ -178,8 +190,8 @@ export default class UserQuery extends Component {
               </div>
 
               <button
-                className="ml-5 mt-3 btn btn-primary"
-                querSubmit
+                className=" mt-3 btn btn-primary"
+                style={{marginLeft:"20%"}}
                 onClick={this.querSubmit.bind(this)}
               >
                 Submit
