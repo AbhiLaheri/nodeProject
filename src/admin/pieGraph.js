@@ -71,6 +71,10 @@ export default class PieGraph extends Component {
   }
 
   render() {
+    if (!localStorage.getItem("myCat")) {
+
+      return <Redirect to="/login1" />;
+    }
       if(this.state.goto){
         
             return <Redirect to="./barGraph"/>

@@ -17,7 +17,7 @@ export default class AddEmployee extends Component {
       msg: "",
       emp_email:"",
       phone_number: "",
-      Confirm_Password:"h",
+      Confirm_Password:"",
   
      
     };
@@ -33,7 +33,8 @@ export default class AddEmployee extends Component {
 
   addEmployee() {
     if (this.state.name != "" && this.state.phone_number != "" && this.state.emp_email != "") {
-      if (this.state.password != "" && this.state.password==this.state.Confirm_Password) {
+      if (this.state.password != "" ) {
+      if (this.state.password==this.state.Confirm_Password) {
         console.log("begin login");
         fetch("http://localhost:8000/addEmployee", {
           method: "POST",
@@ -51,27 +52,32 @@ export default class AddEmployee extends Component {
           .then(response => response.json())
           .then(responseJson => {
             console.log(responseJson.status);
+          if(responseJson.status){
             this.setState({
-                msg:responseJson.message,
-               
-              });
-            if(responseJson.status){
-                this.setState({
-                    redirectToLogin: true,
-                   
-                  });
-            }
-            //   if(responseJson.status){
-
-            //     localStorage.setItem("myCat", "Abhishek");
-            //     return <Redirect to="/user" />;
-            //   }
+              msg:responseJson.message,
+              name: "",
+              password: "",
+              emp_email:"",
+              phone_number: "",
+              Confirm_Password:"",
+             
+            });
+          }
+          else{
+            this.setState({
+            msg:responseJson.message,
+          });
+          }
+           
           })
           .catch(error => {
             console.error(error);
           });
+        } else {
+          alert("Password not match!!");
+        }
       } else {
-        alert("enter Password!!");
+        alert(" enter Password!!");
       }
     } else {
       alert("enter All!!!!");
@@ -122,13 +128,15 @@ export default class AddEmployee extends Component {
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
                     placeholder="Enter email"
+                    value={this.state.emp_email}
                     onChange={event => {
                       this.setState({
                         emp_email: event.target.value
                       });
                     }}
                   />
-                  {/* <span className="badge badge-danger">{this.state.msg}</span> */}
+                 {this.state.msg!="Data added successfully" && this.state.msg.length >0 ?  <span className="badge badge-danger">{this.state.msg}</span>:""} 
+               
                 </div>
 
                 <div className="form-group ">
@@ -138,6 +146,7 @@ export default class AddEmployee extends Component {
                     className="form-control"
                     aria-describedby="emailHelp"
                     placeholder="Name"
+                    value={this.state.name}
                     onChange={event => {
                       this.setState({
                         name: event.target.value
@@ -154,6 +163,7 @@ export default class AddEmployee extends Component {
                     className="form-control"
                     aria-describedby="emailHelp"
                     placeholder="Phone Number"
+                    value={this.state.phone_number}
                     onChange={event => {
                       this.setState({
                         phone_number: event.target.value
@@ -170,6 +180,7 @@ export default class AddEmployee extends Component {
                     className="form-control"
                     id="exampleInputPassword1"
                     placeholder="Password"
+                    value={this.state.password}
                     onChange={event => {
                       this.setState({
                         password: event.target.value
@@ -187,13 +198,14 @@ export default class AddEmployee extends Component {
                     className="form-control"
                     id="exampleInputPassword1"
                     placeholder="Confirm Password"
+                    value={this.state.Confirm_Password}
                     onChange={event => {
                       this.setState({
                         Confirm_Password: event.target.value
                       });
                     }}
                   />
-                  {this.state.password==this.state.Confirm_Password?<span className="badge badge-success">password match</span>:""}
+                  {this.state.password.length>0 && this.state.password==this.state.Confirm_Password?<span className="badge badge-success">password match</span>:""}
                 </div>
 
                 <center>
@@ -205,8 +217,8 @@ export default class AddEmployee extends Component {
                   >
                     Add Employee
                   </button>
-                     <span className="badge badge-success">{this.state.msg}</span>
-                </center>
+                 {this.state.msg=="Data added successfully" ?  <span className="badge badge-success">{this.state.msg}</span>:""}
+                  </center>
               </div>
             </div>
           </div>

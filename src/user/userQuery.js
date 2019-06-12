@@ -15,7 +15,7 @@ export default class UserQuery extends Component {
       subject: "",
       query: "",
       userSession: false,
-      msg: ""
+      msg: "",
     };
   }
 
@@ -29,7 +29,7 @@ export default class UserQuery extends Component {
   handleRadio(e) {
     this.setState({
       subject: e.target.value,
-      userSession: localStorage.getItem("myCat")
+      userSession: localStorage.getItem("myCat"),
     });
   }
   formReset() {
@@ -37,7 +37,8 @@ export default class UserQuery extends Component {
       subject: "",
       query: "",
       msg:"",
-      rd1:""
+      rd1:"",
+      nodeRadio: false
     });
   }
   handleTextArea(e) {
@@ -63,11 +64,12 @@ export default class UserQuery extends Component {
         })
           .then(response => response.json())
           .then(responseJson => {
-            console.log(
-              "submit query",
-              responseJson,
-              localStorage.getItem("myCat")
-            );
+           if(responseJson.status){
+            this.setState({
+              query:"",
+              subject:""
+            });
+           }
             this.setState({
               msg: responseJson.message
             });
@@ -117,6 +119,7 @@ export default class UserQuery extends Component {
                   name="rd1"
                   className="custom-control-input"
                   value="Node"
+                
                   onChange={this.handleRadio.bind(this)}
                 />
                 <label className="custom-control-label text-white" for="customRadio2">
@@ -130,6 +133,7 @@ export default class UserQuery extends Component {
                   name="rd1"
                   className="custom-control-input"
                   value="React"
+                
                   onChange={this.handleRadio.bind(this)}
                 />
                 <label className="custom-control-label text-white" for="customRadio3">
@@ -141,7 +145,7 @@ export default class UserQuery extends Component {
                   type="radio"
                   id="customRadio4"
                   name="rd1"
-                  
+                
                   className="custom-control-input "
                   value="Angular"
                   onChange={this.handleRadio.bind(this)}
@@ -158,6 +162,7 @@ export default class UserQuery extends Component {
                   name="rd1"
                   className="custom-control-input"
                   value="Django"
+                
                   onChange={this.handleRadio.bind(this)}
                 />
                 <label className="custom-control-label text-white" for="customRadio5">
@@ -170,6 +175,7 @@ export default class UserQuery extends Component {
                   id="customRadio6"
                   name="rd1"
                   className="custom-control-input"
+                
                   value="Other"
                   onChange={this.handleRadio.bind(this)}
                 />

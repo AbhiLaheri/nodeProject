@@ -25,7 +25,9 @@ export default class SignUp1 extends Component {
 
   signup() {
     if (this.state.name != "" && this.state.phone_number != "" && this.state.user_email != "") {
-      if (this.state.password != "" && this.state.password==this.state.Confirm_Password) {
+      if (this.state.password != "" ) {
+        if(this.state.phone_number.length == 10){
+          if(this.state.password==this.state.Confirm_Password){
         console.log("begin login");
         fetch("http://localhost:8000/signUp", {
           method: "POST",
@@ -62,6 +64,12 @@ export default class SignUp1 extends Component {
           .catch(error => {
             console.error(error);
           });
+        }
+        else{
+          alert("password not match!!");
+        }
+        }
+        else{ alert("Wrong Mobile No!!");}
       } else {
         alert("enter Password!!");
       }
@@ -115,7 +123,8 @@ export default class SignUp1 extends Component {
                     placeholder="Enter email"
                     onChange={event => {
                       this.setState({
-                        user_email: event.target.value
+                        user_email: event.target.value,
+                        msg:""
                       });
                     }}
                   />
@@ -131,7 +140,8 @@ export default class SignUp1 extends Component {
                     placeholder="Name"
                     onChange={event => {
                       this.setState({
-                        name: event.target.value
+                        name: event.target.value,
+                        msg:""
                       });
                     }}
                   />
@@ -147,7 +157,8 @@ export default class SignUp1 extends Component {
                     placeholder="Phone Number"
                     onChange={event => {
                       this.setState({
-                        phone_number: event.target.value
+                        phone_number: event.target.value,
+                        msg:""
                       });
                     }}
                   />
@@ -163,7 +174,8 @@ export default class SignUp1 extends Component {
                     placeholder="Password"
                     onChange={event => {
                       this.setState({
-                        password: event.target.value
+                        password: event.target.value,
+                        msg:""
                       });
                     }}
                   />
@@ -180,7 +192,8 @@ export default class SignUp1 extends Component {
                     placeholder="Confirm Password"
                     onChange={event => {
                       this.setState({
-                        Confirm_Password: event.target.value
+                        Confirm_Password: event.target.value,
+                        msg:""
                       });
                     }}
                   />

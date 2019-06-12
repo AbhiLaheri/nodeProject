@@ -75,6 +75,10 @@ export default class Email extends Component {
   }
 
   render() {
+    if (!localStorage.getItem("myCat")) {
+
+      return <Redirect to="/login1" />;
+    }
     return (
       <div>
          <Nav userSession={this.state.userSession} />
